@@ -1,0 +1,19 @@
+ALTER TABLE `t_scc_app_user`
+CHANGE COLUMN `UID` `USER_ID`  bigint(20) NOT NULL AFTER `ID_APP`;
+
+ALTER TABLE `t_scc_app_stat_detail`
+CHANGE COLUMN `UID` `USER_ID`  bigint(20) NULL DEFAULT NULL AFTER `CLOCK`;
+
+ALTER TABLE `t_scc_app_info`
+CHANGE COLUMN `LEVEL` `API_LEVEL`  int(11) NULL DEFAULT NULL AFTER `ID_ICON`;
+
+ALTER TABLE `t_scc_app_detail`
+CHANGE COLUMN `SIZE` `PKG_SIZE`  bigint(20) NULL DEFAULT NULL AFTER `PROVIDER`;
+
+ALTER TABLE `t_scc_app_detail_history`
+CHANGE COLUMN `SIZE` `PKG_SIZE`  bigint(20) NULL DEFAULT NULL AFTER `PROVIDER`;
+
+ALTER TABLE `t_scc_app_attr`
+CHANGE COLUMN `_KEY` `ATTR_KEY`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+alter table t_scc_app add nameen varchar(100);

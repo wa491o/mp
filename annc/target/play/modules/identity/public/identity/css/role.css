@@ -1,0 +1,45 @@
+.select{
+	float:left;
+	border:1px solid #D6D6D6;
+	padding:5px;
+	width:150px;
+	height:34px;
+	border-radius:5px;
+}
+
+.inputDiv_role{
+	float:left;
+	border:1px solid #D6D6D6;
+	width:180px;
+	height:30px;
+	border-radius:5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.inputDiv_edit{
+	border:1px solid #D6D6D6;
+	width:180px;
+	height:30px;
+	border-radius:5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.select_edit{
+	border:1px solid #D6D6D6;
+	padding:5px;
+	width:150px;
+	height:34px;
+	border-radius:5px;
+}
+
+.dialog-editrole{
+	display:none;
+	width:300px;
+	padding:10px;
+}
+
+.saveRole_btn,.cancelRole_btn{
+	display:inline-block;
+}

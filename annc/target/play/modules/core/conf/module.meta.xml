@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://wisorg.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://wisorg.com/schema/module http://dev.wisorg.com/pub/module.xsd" title="系统管理" index="0">
+	<roles>
+		<!-- <role name="core.admin" title="系统管理" type="ADMIN_USER_ROLE" /> -->
+		<!-- <role name="identity.auth" title="管理员" type="ADMIN_USER_ROLE" />
+		<role name="identity.group" title="管理员组" type="ADMIN_USER_ROLE" /> -->
+		
+		<role name="domain.admin" title="产品域" type="ADMIN_USER_ROLE" />
+		<role name="module.admin" title="模块设置" type="ADMIN_USER_ROLE" />
+		<role name="cache.admin" title="缓存设置" type="ADMIN_USER_ROLE" />
+		<role name="tables.admin" title="数据结构" type="ADMIN_USER_ROLE" />
+		<role name="message.admin.set" title="消息设置" type="ADMIN_USER_ROLE" />
+		<role name="imagelist.admin" title="图片列表" type="ADMIN_USER_ROLE" />
+		<role name="fs.admin" title="文件管理" type="ADMIN_USER_ROLE" />
+		<role name="searcher.admin" title="索引管理" type="ADMIN_USER_ROLE" />
+		<role name="tester.admin" title="API工具" type="ADMIN_USER_ROLE" /> 
+		
+	</roles>
+	
+	<fixtures>
+		<job class="jobs.DomainFixture"/>
+		
+		<script db-type="oracle" file="conf/sql/count_history_oracle.sql" sql-type="dml"/>
+	</fixtures>
+
+	<console>
+        
+        <menu id="content.main" title="内容管理" primary="true" index="4" icon="icn_content"/>
+        
+		<menu id="system.main" title="系统管理" index="100" primary="true" icon="icn_set">
+            <item id="identity.auth" title="管理员" index="1" action="@{identity.AdminSetCtl.adminManage()}" check="identity.auth"/>
+			<item id="identity.group" title="管理员组" index="2" action="@{identity.UserGroupCtl.userGroupIndex()}" check="identity.group"/>
+            <item id="domain.config" title="产品域" index="3" action="@{config.DomainCtl.index()}" check="domain.admin"/>
+			<item id="core.config" title="模块设置" action="@{config.AppCtl.index()}" check="module.admin"/>
+			<item id="cache.config" title="缓存设置" action="@{config.CacheCtl.index()}" check="cache.admin"/>
+			<item id="core.tables" title="数据结构" action="@{TableCtl.index()}" check="tables.admin"/>
+			<item id="message.sms" title="消息设置" index="6" action="@{message.MessageCtl.smsChannel()}" check="message.admin.set"/>
+			<item id="imagelist.config" title="图片列表" index="10" action="@{imagelist.ImageListCtl.categoryList()}" check="imagelist.admin"/>
+			<item id="fs.config" index="30" title="文件设置" action="@{fs.CfgCtl.index()}" check="fs.admin"/>	
+			<item id="searcher.console" index="50" title="索引管理" action="@{searcher.ConsoleCtl.console()}" check="searcher.admin"/>
+			<item id="tester.tool" title="API工具" index="100" action="@{tester.ApiCtl.index()}" check="tester.admin"/>
+		</menu>
+		
+	</console>
+	
+	<configurations>
+		<app name="系统平台" key="sys" type="BIZ_MODULE">
+			<biz name="系统-图片" key="image">
+				<config key="image" value="{'accessType':-1,'allowExts':[],'cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'initResize':{'height':800,'width':800},'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[{'height':10,'width':10},{'height':50,'width':50}]}"/>
+			</biz>
+			<biz name="系统-文件" key="bin">
+				<config key="bin" value="{'accessType':-1,'allowExts':[],'cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'BIN','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0}"/>
+			</biz>
+			<biz name="系统-视频" key="video">
+				<config key="video" value="{'accessType':-1,'allowExts':['mpg', 'mpeg', 'mpe', 'avi', 'mov', 'asf', 'mp4', 'wmv', 'flv', '3gp', 'rm', 'rmvb'],'cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'BIN','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0}"/>
+			</biz>
+			<biz name="系统-压缩文件" key="zip">
+				<config key="zip" value="{'accessType':-1,'allowExts':[],'cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'ZIP','unzip':true,'urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[]}"/>
+			</biz>
+			<biz name="系统-系统消息" key="sys-message">
+				<config key="sys-message" value="{'accessType':-1,'allowExts':[],'cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[]}"/>
+			</biz>
+		</app>
+		<app name="域" key="domain" type="BIZ_MODULE"/>
+	</configurations>
+</module>

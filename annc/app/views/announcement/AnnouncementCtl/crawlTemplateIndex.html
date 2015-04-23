@@ -1,0 +1,115 @@
+#{extends 'main.html' /}
+#{set title:'公告源' /}
+<link rel="stylesheet" media="screen" href="@{'/public/announcement/css/announceForConsole.css'}">
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+</style>
+<div style="height: 50px;line-height: 50px; margin-left: 20px;">
+	<div class="optionContainer fl">
+	<a class="bt_87_33_orange sheldingAll_btn" href="javascript:;" onclick="Announcement.editCrawlTemplate('新增')">
+		<span>新增</span>
+	</a>
+    <a class="bt_87_33_orange sheldingAll_btn" href="@{announcement.AnnouncementCtl.announcementIndex()}">
+        <span>返回</span>
+    </a>
+	</div>
+</div>
+<div style="height: auto; margin-top: 5px; margin-left: 20px;">
+	<table class="gridtable">
+		<thead>
+			<tr>
+				<th style="width:100px;">目录</th>
+				<th style="width:200px;">名称</th>
+				<th style="width:500px;">URL</th>
+				<th style="width:80px;">域</th>
+				<th style="width:70px;">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			#{list items:dataMap.crawlTemplateList, as:'crawlTemplate'}
+			<tr>
+				<td>${crawlTemplate.directory}</td>
+				<td>${crawlTemplate.name}</td>
+				<td>${crawlTemplate.urlList}</td>
+				<td>${crawlTemplate.domainName}</td>
+				<td>
+					<a href="javascript:void(0);" onclick="Announcement.editCrawlTemplate('编辑','${crawlTemplate.id}','${crawlTemplate.directory}','${crawlTemplate.name}','${crawlTemplate.urlList}','${crawlTemplate.domainKey}','${crawlTemplate.domainName}')">编辑</a>
+					<a style="margin-left:10px;" href="javascript:void(0);" onclick="Announcement.deleteCrawlTemplate('${crawlTemplate.id}')">删除</a>
+				</td>
+			</tr>
+			#{/list}
+		</tbody>
+	</table>
+</div>
+<!--添加源框开始-->
+<div id="createDiv" style="display: none;">
+	<div class="lineDiv">
+		<div class="labelDiv">
+			<span>域　</span>
+		</div>
+		<select id="domainInput">
+			<option value="">请选择</option>
+			#{list items:dataMap.domains, as:'domain'}
+				<option value="${domain.key}">${domain.name}</option>
+			#{/list}
+		</select>
+	</div>
+	<div class="clear"></div>
+	<div class="lineDiv">
+		<div class="labelDiv"><span>目录</span></div>
+		<input class="inputDiv" type="text" id="directoryInput"
+			style="width: 200px;" value="">
+	</div>
+	<div class="clear"></div>
+	<div class="lineDiv">
+		<div class="labelDiv">
+			<span>名称</span>
+		</div>
+		<input class="inputDiv" type="text" id="nameInput"
+			style="width: 200px;" value="">
+	</div>
+	<div class="clear"></div>
+	<div class="lineDiv">
+		<div class="labelDiv">
+			<span>URL</span>
+		</div>
+		<textarea id="urlListInput" class="inputDiv" rows="100" cols="5" style="width: 280px;height:80px;"></textarea>
+	</div>
+	<div class="clear"></div>
+	<input type="hidden" id="idInput" value="" autocomplete="off">
+	<div class="lineDiv" style="margin: 30px auto 30px 130px;">
+		<div class="bt_56_32_green" style="float: left;"
+			onclick="Announcement.saveCrawlTemplate()">确定</div>
+		<div class="bt_55_32_orange" style="float: left; margin-left: 25px;"
+			onclick="Announcement.cancelAddCrawlTemplate();">取消</div>
+	</div>
+</div>
+<!--添加domain框结束-->
+<script type="text/javascript" src="@{'/public/announcement/js/announceForConsole.js'}"></script>
+<script type="text/javascript">
+$(function(){
+	Announcement.requestUrl.saveTemplate = "@{announcement.AnnouncementCtl.saveTemplate()}";
+	Announcement.requestUrl.deleteTemplate = "@{announcement.AnnouncementCtl.deleteTemplate()}";
+});
+</script>

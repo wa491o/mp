@@ -1,0 +1,73 @@
+{
+	"BIN" : {
+		"accessType":-1,
+		"allowExts":[],
+		"cacheSeconds":0,
+		"defaultIds":[1,2],
+		"extractMetadata":false,
+		"maxSize":-1,
+		"quota":-1,
+		"readScope":"ALL",
+		"timeout":10,
+		"urlRewrite":false,
+		"used":0,
+		"userQuita":-1,
+		"xsendfileLimitRate":0
+	},
+	"IMAGE" : {
+		"accessType":-1,
+		"allowExts":[],
+		"cacheSeconds":0,
+		"defaultIds":[1,2],
+		"extractMetadata":false,
+		"initResize":{
+			"height":800,
+			"width":800
+		},
+		"maxSize":-1,
+		"quota":-1,
+		"readScope":"ALL",
+		"timeout":10,
+		"urlRewrite":false,
+		"used":0,
+		"userQuita":-1,
+		"xsendfileLimitRate":0,
+		"zooms":[{
+			"height":10,
+			"width":10
+		},{
+			"height":50,
+			"width":50
+		}]
+	},
+	"VIDEO" : {
+		"accessType":-1,
+		"allowExts":["mpg", "mpeg", "mpe", "avi", "mov", "asf", "mp4", "wmv", "flv", "3gp", "rm", "rmvb"],
+		"cacheSeconds":0,
+		"defaultIds":[1,2],
+		"extractMetadata":false,
+		"maxSize":-1,
+		"quota":-1,
+		"readScope":"ALL",
+		"timeout":10,
+		"urlRewrite":false,
+		"used":0,
+		"userQuita":-1,
+		"xsendfileLimitRate":0
+	},
+	"AUDIO" : {
+		"accessType":-1,
+		"allowExts":["mp3", "wav", "wma", "ogg", "ape", "flac", "aif", "pcm", "aac"],
+		"cacheSeconds":0,
+		"defaultIds":[1,2],
+		"extractMetadata":false,
+		"maxSize":-1,
+		"quota":-1,
+		"readScope":"ALL",
+		"timeout":10,
+		"urlRewrite":false,
+		"used":0,
+		"userQuita":-1,
+		"xsendfileLimitRate":0
+	}
+}

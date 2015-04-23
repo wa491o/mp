@@ -1,0 +1,33 @@
+# This file defines all module routes (Higher priority routes first)
+#
+# import these routes in the main app as :
+# *     /                       module:demo-service
+#
+# ~~~~
+
+GET		/?						announcement.index
+
+GET 	/edit/{id}				announcement.edit
+GET 	/add/?					announcement.add
+
+POST	/save					announcement.doEdit
+GET		/delete/{id}			announcement.delete
+
+GET		/announcementManage		announcement.AnnouncementCtl.announcementIndex
+
+GET		/addAnnouncement		announcement.AnnouncementCtl.addAnnouncement
+*		/syncAnnouncement		announcement.AnnouncementCtl.syncAnnouncement
+
+POST	/saveAnnouncement		announcement.AnnouncementCtl.saveAnnouncement
+POST	/changeSourceState		announcement.AnnouncementCtl.changeSourceStatus
+POST	/manageSoruce			announcement.AnnouncementCtl.getAllSoure
+POST	/getTemplates			announcement.AnnouncementCtl.getTemplates
+POST 	/deleteSubscribeSource	announcement.AnnouncementCtl.deleteSubscribeSource
+POST	/editSubscribeSource	announcement.AnnouncementCtl.editSubscribeSource
+POST	/saveSubscribeSource	announcement.AnnouncementCtl.saveSubSource
+
+POST	/shieldingAnnouncement	announcement.AnnouncementCtl.shieldingAnnouncement
+POST	/getAnnouncement		announcement.AnnouncementCtl.getAnnouncements
+GET 	/editAnnouncement		announcement.AnnouncementCtl.editAnnouncement
+POST 	/getAllRoles			announcement.AnnouncementCtl.getAllRoles
+*       /deleteAnnouncement     announcement.AnnouncementCtl.deleteAnnouncements

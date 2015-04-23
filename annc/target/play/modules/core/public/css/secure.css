@@ -1,0 +1,182 @@
+html{
+    background:url(../images/bg.jpg);
+    font-family: 'Lucida grande', verdana, sans-serif;
+    width:100%;
+    height:100%;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    -webkit-background-size:  cover;
+    -o-background-size:cover;
+    zoom:1;
+}
+
+body {
+    font-family: 'Lucida grande', verdana, sans-serif;
+}
+
+#login {
+    width: 525px;
+	height:359px;
+	background:url(../images/dl_bg.png) no-repeat;
+	position:fixed;
+	top:25%;
+	left:30%;
+    text-align: center;
+}
+
+#login text2 {
+	font-size:14px;
+    color: #fff;
+}
+
+#login text3 {
+	font-size:14px;
+    color: #4a4f54;
+}
+
+#login form {  	  
+    margin: 108px 0 0 220px;
+    text-align: left;
+}
+
+#login form div {
+	float:left;
+}
+
+#username-field {
+    margin-top: 10px !important;
+}
+
+#password-field{	
+	position:relative;
+	margin:20px 0 0 0;
+}
+
+#username-field .usernameLab{
+	display: block;
+	float: left;
+    text-align: right;
+	background:url("../images/console.png") no-repeat;
+	background-position: -342px -679px;
+	height: 27px;
+	width: 22px ;
+	margin:4px 0 0 4px;
+}
+
+#username-field .usernameDiv,#password-field .passwordDiv{
+	display: block;
+	float: left;
+	background:#fff;
+	height: 34px;
+	width: 30px ;
+}
+
+#password-field .passwordLab{
+	display: block;
+	float: left;
+    text-align: right;
+	background:url("../images/console.png") no-repeat;
+	background-position: -342px -614px;
+	height: 27px;
+	width: 22px ;
+	margin:4px 0 0 4px;
+}
+
+.username-input {
+	padding-left:5px;
+    width:195px;
+	height:34px;
+	border:none;
+	font-size:14px;
+    color: #808080;
+	background:#ffffff;
+}
+
+.password-input {
+	padding-left:5px;
+    width:195px;
+	height:34px;
+	border:none;	
+	font-size:14px;
+    color: #808080;
+	left:30px;	
+	background-color:#FFFFFF;
+}
+.password-info{
+	position:absolute;
+	color:#808080;
+	left:39px;
+	top:5px;
+	cursor:text;
+}
+.username-input-focus,.password-input-focus{
+	color:#333333;
+}
+#captcha-field{
+	margin-top:10px;
+}
+
+#captcha-field label{
+    display: block;
+    float: left;
+    text-align: right;
+    margin:8px 0 0 0;
+    color: #fff;
+    font-size: 15px;
+}
+
+#captcha-field input {
+    width: 60px;
+    font-size: 13px;
+	height:25px;
+	border:none;
+	padding-left:5px;
+	background-color:#FFFFFF;
+}
+
+#remember-field {
+    margin-top: 15px;
+	font-size: 12px;
+    color: #fff;
+}
+
+#signin-field input {
+	font-size:14px;
+    margin-top: 10px;
+}
+
+#login .error, #login .success  {
+	top: 20px;
+	position: absolute;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#login .error {
+    background: #c00 !important;
+}
+
+#login .success {
+    background: #008800 !important;
+}
+.verify_refresh{
+	display:inline-block;
+	background:url("../images/refresh.png") no-repeat;
+	background-position: 0 0;
+	height: 17px;
+	width: 13px ;
+	margin-bottom:3px;
+}
+.verify_refresh:hover{
+	background-position: 0 -18px;
+}
+.varify_refresh_img{
+	background:#fff;
+	cursor:pointer;
+	height:25px;
+}

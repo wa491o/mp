@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+.userGroupContainer{
+	width:850px;
+}
+.addUserGroup{
+	padding:10px;
+}
+.addUserGroup-item{
+	float:left;
+	margin-left:20px;
+}
+.group-inp{
+	width:200px;
+	border: 1px solid #D6D6D6;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 #EAEAEA inset;
+    height: 28px;
+    padding: 0 0 0 5px;
+    vertical-align: middle;
+	background-color:#FFFFFF;
+}
+.group-span{
+	width:50px;
+	text-align:right;
+	display:block;
+	float:left;
+	line-height:32px;
+	color:#8f8f8f;
+	margin-right:10px;
+}
+.groupList{
+	width:800px;
+	margin:0 auto;
+}
+
+.optionDiv{
+	margin:5px;
+}
+.optionDiv a{
+	margin-left:5px;
+}
+/*编辑对话框*/
+.editGroupDialog{
+	display:none;
+	padding:10px;
+}
+.itemEditGroup{
+	heiht:35px;
+	margin-bottom:10px;
+	margin-left:30px;
+}
+/*权限设定对话框*/
+.authSetDialog{
+	display:none;
+	padding:10px;
+}
+.authList_item{
+	margin-bottom:10px;
+}
+.authList_item label{
+	margin-right:5px;
+}
+.authSetDialog input{
+	margin-right:5px;
+}
+.auth_oneLevel{
+	heihgt:20px;
+	line-height:20px;
+	border-bottom:1px solid #D7D7D7;
+	margin-bottom:10px;
+	font-weight:bold;
+}
+.auth_twoLevel{
+	margin-left:20px;
+	heihgt:30px;
+	line-height:30px;
+}
+/*按钮定义*/
+.addGroup_btn,.editGroupDialog_confirm_btn,.editGroupDialog_cancel_btn,.authSetDialog_confirm_btn,.authSetDialog_cancel_btn{
+	display:inline-block;
+}
+.addGroup_btn span,.editGroupDialog_confirm_btn span,.editGroupDialog_cancel_btn span,.authSetDialog_confirm_btn span,.authSetDialog_cancel_btn span{
+	display:inline-block;
+	text-align:center;
+}

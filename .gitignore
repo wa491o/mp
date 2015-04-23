@@ -41,3 +41,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.bak
+*.class
+annc/precompiled/templates/app/views/announcement/AnnouncementCtl/addAnnouncement.html

@@ -1,0 +1,43 @@
+# import these default routes as :
+# *         /               module:secure
+# ~~~~
+
+*     		/roleManage 	identity.UserCtl.roleManage
+*     		/saveRole       identity.UserCtl.saveRole
+*     		/queryRoleList  identity.UserCtl.queryRoleList
+*     		/getRole 		identity.UserCtl.getRole
+*			/updateRole		identity.UserCtl.updateRole
+
+GET			/blank			identity.Auths.blank
+
+GET			/userGroupManage 	 identity.UserGroupCtl.userGroupIndex
+POST		/addUserGroup		 identity.UserGroupCtl.addUserGroup
+POST 		/getGroupInfo		 identity.UserGroupCtl.getGroupInfo
+POST		/deleteUserGroup     identity.UserGroupCtl.deleteUserGroup
+POST		/editUserGroup 		 identity.UserGroupCtl.editUserGroup
+POST		/updateGroupInfo	 identity.UserGroupCtl.updateGroupInfo
+POST		/getModules			 identity.UserGroupCtl.getModules
+POST 		/saveGroupAuth		 identity.UserGroupCtl.saveGroupAuth
+
+GET 		/adminManage		 identity.AdminSetCtl.adminManage
+*			/listAdminSetInfo	 identity.AdminSetCtl.listAdminSetInfo
+*			/listUserGroup		 identity.AdminSetCtl.listUserGroup
+*			/getAdminInfo	 	 identity.AdminSetCtl.getAdminInfo
+POST		/addAdminInfo		 identity.AdminSetCtl.addAdminInfo
+*			/updateAdminInfo	 identity.AdminSetCtl.updateAdminInfo
+*			/updateGroup	 	 identity.AdminSetCtl.updateGroup
+POST		/updateAdminStatus	 identity.AdminSetCtl.updateAdminStatus
+
+*			/accountManage   	 identity.UserCtl.accountManage
+*			/queryAccountList    identity.UserCtl.queryAccountList
+*			/updateAccountStatus identity.UserCtl.updateAccountStatus
+*			/isExistsCheck	     identity.UserCtl.isExistsCheck
+*			/accountDetail		 identity.UserCtl.accountDetail
+*			/updateAccount		 identity.UserCtl.updateAccount
+*			/initRegion		     identity.UserCtl.initRegion
+
+GET			/initUserIndex       identity.UserCtl.initUserIndex
+POST		/initUserList        identity.UserCtl.initUserList
+POST		/delInitUserList     identity.UserCtl.delInitUser
+POST		/uploadTemplate      identity.UserCtl.uploadTemplate
+*           /deleteRole          identity.UserCtl.deleteRole

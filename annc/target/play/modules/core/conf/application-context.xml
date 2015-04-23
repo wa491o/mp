@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:redis="http://www.springframework.org/schema/redis"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/redis http://www.springframework.org/schema/redis/spring-redis.xsd">
+
+    <import resource="application-context-base.xml"/>
+
+    <bean id="vgroupProviderFactory" class="services.vgroup.VGroupProviderFactory"/>
+
+    <bean id="bizConfigListener" class="services.config.impl.ConfigEventListener">
+        <property name="redis" ref="redisTemplate"/>
+    </bean>
+
+    <bean id="typedEventListener" class="services.listener.TypedEventListener">
+        <property name="redis" ref="redisTemplate"/>
+    </bean>
+
+    <redis:listener-container connection-factory="redisConnectionFactory">
+        <redis:listener ref="bizConfigListener" topic="bizConfig:*"/>
+        <redis:listener ref="typedEventListener" topic="typedEvent:*"/>
+    </redis:listener-container>
+
+    <bean id="cacheConfigService" class="services.cache.impl.CacheConfigServiceImpl">
+        <property name="redisCacheManager" ref="cacheManager"/>
+        <property name="redis" ref="redisTemplate"/>
+    </bean>
+
+    <bean id="configService" class="services.config.impl.ConfigServiceImpl">
+        <property name="redis" ref="redisTemplate"/>
+    </bean>
+
+    <!--counter-->
+    <bean id="counterService" class="services.counter.impl.CounterServiceImpl">
+        <property name="countDAO">
+            <bean class="services.counter.impl.CachedCountDAOImpl">
+                <property name="redis">
+                    <bean class="com.wisorg.scc.core.support.redis.SccRedisTemplate">
+                        <property name="namespace" value="ct"/>
+                        <property name="defaultSerializer">
+                            <bean class="com.wisorg.scc.core.support.redis.FastjsonRedisSerializer"/>
+                        </property>
+                    </bean>
+                </property>
+                <property name="internalCountDAO">
+                    <bean class="services.counter.impl.CountDAOImpl"/>
+                </property>
+                <property name="flushPeriod" value="${counter.flushPeriod}"/>
+            </bean>
+        </property>
+
+        <property name="countHistoryWriteCacheProvider">
+            <bean class="services.counter.impl.CountHistoryWriteCacheProviderImpl">
+                <property name="config">
+                    <bean class="com.wisorg.scc.api.internal.cache.write.WriteCacheConfig">
+                        <property name="region" value="count-history"/>
+                        <property name="flushPeriodSeconds" value="${counter.flushPeriod}"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="tokenService" class="services.token.TokenServiceImpl">
+        <property name="cache">
+            <bean class="com.wisorg.scc.core.cache.redis.RedisCacheFactoryBean">
+                <property name="region" value="tokenRegion"/>
+                <property name="namespace" value="tk"/>
+                <property name="clearable" value="false"/>
+                <property name="timeToLiveSeconds" value="2592000"/>
+                <property name="timeToIdleSeconds" value="86400"/>
+                <!-- max ttl: 1 month -->
+                <property name="maxTimeToLiveSeconds" value="2592000"/>
+                <!-- max tti: 1 day -->
+                <property name="maxTimeToIdleSeconds" value="86400"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="writeCacheService" class="services.cache.write.WriteCacheServiceImpl">
+        <property name="redis">
+            <bean class="com.wisorg.scc.core.support.redis.SccRedisTemplate">
+                <property name="namespace" value="wc"/>
+                <property name="defaultSerializer" ref="defaultRedisSerializer"/>
+            </bean>
+        </property>
+        <property name="enableTask" value="${task.enabled}"/>
+    </bean>
+    
+    <bean class="com.wisorg.scc.core.uri.ResUriServiceImpl" />
+    <bean class="com.wisorg.scc.core.uri.ResUriPersisterImpl"/>
+    
+    <bean class="com.wisorg.scc.core.uri.ExternalUriResProvider">
+        <property name="uriSpec">
+            <bean class="com.wisorg.scc.api.internal.uri.model.UriSpec">
+                <property name="key" value="void" />
+                <property name="name" value="外链" />
+                <property name="editable" value="true" />
+            </bean>
+        </property>
+    </bean>
+</beans>

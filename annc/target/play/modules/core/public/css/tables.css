@@ -1,0 +1,29 @@
+#tables {
+	margin: 20px;
+}
+
+#tables table {
+	border-spacing: 0px;
+	text-align: left;
+	border-collapse: collapse;
+	border-spacing: 2px;
+	border-color: gray;
+	width: 600px;
+	margin-bottom: 20px;
+}
+
+#tables th {
+	color: #4f6b72;
+	border: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	padding: 6px 6px 6px 12px;
+	background-color: #CAE8EA;
+	text-align: left;
+}
+
+#tables td {
+	border: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}

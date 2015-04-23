@@ -1,0 +1,1 @@
+alter table T_SCC_USER add NAMES_IDS VARCHAR(1000);

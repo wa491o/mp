@@ -1,0 +1,395 @@
+/*24*24 上传按钮*/
+.bt_49_33_upload{
+	height: 33px;
+	line-height: 33px;
+	width: 49px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -185px -559px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_49_33_upload:hover{
+	background-position:-4px -559px;
+}
+/* 56*32 green BTN */
+.bt_56_32_green{
+	width:56px;
+	height:32px;
+	line-height:32px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -8px -249px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_56_32_green:hover{
+	background-position:-8px -188px;
+}
+/* 56*32	pink BTN*/
+.bt_56_32_pink{
+	width:56px;
+	height:32px;
+	line-height:32px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -186px -249px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_56_32_pink:hover{
+	background-position: -186px -188px;
+}
+
+/* 56*32	orange BTN*/
+.bt_56_32_orange{
+	width:56px;
+	height:32px;
+	line-height:32px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -3px -635px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_56_32_orange:hover{
+	background-position: -186px -635px;
+}
+/* 87*33 orange Btn*/
+.bt_87_33_orange{
+	width:87px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -3px -304px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_87_33_orange:hover{
+	background-position:-184px -304px;
+}
+/* 129*33 orange btn*/
+.bt_129_33_orange{
+	width:129px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -4px -371px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_129_33_orange:hover{
+	background-position:-185px -371px;
+}
+/* 149*33 green btn*/
+.bt_149_33_green{
+	width:149px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -4px -433px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_149_33_green:hover{
+	background-position:-185px -433px;
+}
+/* 149*33 orange btn*/
+.bt_149_33_orange{
+	width:149px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -4px -1241px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_149_33_orange:hover{
+	background-position:-185px -1241px;
+}
+/*  82*27 black btn*/
+.bt_82_27_black{
+	width:82px;
+	height:27px;
+	line-height:27px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -184px -500px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_82_27_black:hover{
+	background-position:-3px -500px;
+}
+/* 55*32 orange btn*/
+.bt_55_32_orange{
+	width:55px;
+	height:32px;
+	line-height:32px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -186px -635px;
+	color:#ffffff;
+	text-align:center;
+	cursor: pointer;
+}
+.bt_55_32_orange:hover{
+	background-position:-3px -635px;
+}
+/* 48*33 orange btn*/
+.bt_48_33_orange{
+	width:48px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -186px -704px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_48_33_orange:hover{
+	background-position:-4px -703px;
+}
+/* 78*24 green btn*/
+.bt_78_24_green{
+	width:78px;
+	height:24px;
+	line-height:24px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -183px -804px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_78_24_green:hover{
+	background-position:-7px -804px;
+}
+/* 117*33 greyish white btn*/
+.bt_117_33_greyishWhite{
+	width:117px;
+	height:33px;
+	line-height:33px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -4px -929px;
+	color:#7e7e7e;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_117_33_greyishWhite:hover{
+	background-position: -4px -858px;
+}
+/* 85*28 greyish white btn*/
+.bt_85_28_greyishWhite{
+	width:85px;
+	height:28px;
+	line-height:28px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -4px -1013px;
+	color:#7e7e7e;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_85_28_greyishWhite:hover{
+	background-position: -186px -1013px;
+}
+/* 43*28 greyish white btn*/
+.bt_43_28_greyishWhite{
+	width:43px;
+	height:28px;
+	line-height:28px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -183px -929px;
+	color:#7e7e7e;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_43_28_greyishWhite:hover{
+	background-position: -185px -858px;
+}
+/* 112*50 greyish white btn*/
+.bt_112_50_greyishWhite{
+	width:112px;
+	height:50px;
+	line-height:50px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -185px -1137px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_112_50_greyishWhite:hover{
+	background-position:-185px -1066px;
+}
+/* 112*50 blue btn*/
+.bt_112_50_blue{
+	width:112px;
+	height:50px;
+	line-height:50px;
+	background:url("../images/console.png") no-repeat;
+	background-position: 0 -1066px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+.bt_112_50_blue:hover{
+	background-position:0 -1136px;
+}
+
+.bt_180_55_orange{
+	width:180px;
+	height:55px;
+	line-height:38px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -2px -1337px;
+	color:#ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+
+.bt_180_55_grey{
+	width:180px;
+	height:55px;
+	line-height:38px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -193px -1337px;
+	color:#b3b3b3;
+	cursor: pointer;
+	text-align: center;
+}
+
+.btn_list_option{
+    background-color: #F2F2F2;
+    border-color: #D9D9D9;
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+	margin:3px;
+}
+.btn_list_option span{
+    border-color: #FFFFFF;
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 1px;
+    color: #0000FF;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 9px 0 8px;
+    vertical-align: middle;
+}
+.btn_list_option:hover {
+    background-color: #FFA00A;
+    border-color: #FF9B01;
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.btn_list_option:hover span {
+    border-color: #FFCE82;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+}
+.btn_list_option:hover, .btn_list_option:hover span {
+    background: -moz-linear-gradient(center top , #FFB847 0%, #FFA210 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+
+.bt_21_21_blackAdd{
+	width:21px;
+	height:21px;
+	line-height:21px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -3px -62px;
+	color:#b3b3b3;
+	cursor: pointer;
+	text-align: center;
+}
+
+.bt_21_21_blackDelete{
+	width:21px;
+	height:21px;
+	line-height:21px;
+	background:url("../images/console.png") no-repeat;
+	background-position: -154px -62px;
+	color:#b3b3b3;
+	cursor: pointer;
+	text-align: center;
+}
+/*TAB 样式*/
+.tabTitle{
+    background-color: #F2F2F2;
+    border-color: #D9D9D9;
+    border-top-left-radius: 5px;
+	border-top-right-radius:5px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+	line-height:30px;
+	margin:3px;
+}
+.tabTitle span{
+    border-color: #FFFFFF;
+   	border-top-left-radius: 5px;
+	border-top-right-radius:5px;
+    border-style: solid;
+    border-width: 1px;
+    color: #777;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 9px 0 8px;
+    vertical-align: middle;
+	font-weight:bold;
+}
+.tabTitle-selected{
+	border-color: #FF9B01;
+	background-color: #FFA00A;
+}
+.tabTitle-selected span{
+	border-color: #FFCE82;
+	background-color: #FFA210;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+	background: -moz-linear-gradient(center top , #FFB847 0%, #FFA210 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+.tabTitle:hover {
+    background-color: #FFA00A;
+    border-color: #FF9B01;
+   	border-top-left-radius: 5px;
+	border-top-right-radius:5px;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.tabTitle:hover span {
+    border-color: #FFCE82;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+}
+.tabTitle:hover, .tabTitle:hover span {
+    background: -moz-linear-gradient(center top , #FFB847 0%, #FFA210 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    text-decoration: none;
+}

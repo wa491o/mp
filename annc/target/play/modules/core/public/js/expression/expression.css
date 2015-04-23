@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+.emotion{
+	background:#d5ecf3;
+	padding:4px;
+	border:1px solid #b7e1f0;
+	cursor:auto;
+}
+.emotion table td{
+	padding:0 1px 1px 0;
+}
+.emotion table td img{
+	cursor:pointer;
+	border:1px #ffffff solid;
+	background:#fff;
+}
+.emotion table td img:hover{
+	border:1px #0066cc solid;
+}

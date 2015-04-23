@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+	<worksheet name="Sheet1">
+		<loop startRow="0" endRow="0" items="users" var="user" varType="controllers.identity.util.ImportUser">
+			<section startRow="0" endRow="0">
+				<mapping row="0" col="0">user.idsNo</mapping>
+				<mapping row="0" col="1">user.realname</mapping>
+				<mapping row="0" col="2">user.departmentName</mapping>
+				<mapping row="0" col="3">user.specialtyName</mapping>
+				<mapping row="0" col="4">user.role</mapping>
+				<mapping row="0" col="5">user.idsNames</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0">
+					<cellcheck offset="0"></cellcheck>
+				</rowcheck>
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

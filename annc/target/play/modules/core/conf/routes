@@ -1,0 +1,15 @@
+GET			/				Consoles.index
+GET			/login			Secure.login
+POST        /login          Secure.authenticate
+GET         /logout         Secure.logout
+GET			/captcha		Secure.captcha
+
+GET			/core/config	config.AppCtl.index
+GET			/core/cache		config.CacheCtl.index
+GET			/core/cstat		config.CacheCtl.stat
+POST        /core/scopeApi  OpenPlatform.getScopeApi
+GET			/core/thriftjs  ThriftJsCtl.js
+
+GET			/tables			TableCtl.index
+
+GET			/core/domain						config.DomainCtl.index

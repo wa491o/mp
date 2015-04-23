@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="oIdentityService" class="services.identity.impl.OpenIdentityServiceImpl">
+		<property name="registerEnabled" value="${identity.register.enabled}" />
+		<property name="defaultSessionTTL" value="${identity.session.default.ttl}" />
+	</bean>
+
+    <bean id="sessionTimeDetailWriteCacheProvider" class="services.identity.impl.SessionTimeDetailWriteCacheProviderImpl">
+    	<property name="config">
+    		<bean class="com.wisorg.scc.api.internal.cache.write.WriteCacheConfig">
+				<property name="region" value="session-time-detail" />
+				<property name="flushPeriodSeconds" value="300" />
+			</bean>
+    	</property>
+    </bean>
+    
+	<bean id="sessionService" class="services.identity.impl.ThriftSessionServiceImpl">
+		<property name="defaultSessionTTI" value="${identity.session.default.tti}" />
+		<property name="sessionTimeDetailWriteCacheProvider" ref="sessionTimeDetailWriteCacheProvider" />
+		<property name="timeCheckPeriod" value="${identity.session.timeCheckPeriod}" />
+		<property name="archiveOnCron" value="${identity.session.archiveOnCron}" />
+	</bean>
+
+	<bean id="localAuthenticateProvider" class="services.identity.impl.LocalUserAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.local.enabled}" />
+		<property name="verifyEmail" value="${identity.credential.email.verify.enabled}" />
+		<property name="verifyMobile" value="${identity.credential.mobile.verify.enabled}" />
+		<property name="emailSubject" value="${identity.credential.email.verify.subject}" />
+	</bean>
+
+	<bean id="mockAuthenticateProvider" class="services.identity.impl.MockAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.mock.enabled}" />
+		<property name="handleTypes" value="${identity.auth.provider.mock.handle.types}" />
+	</bean>
+	
+	<bean id="idsAuthenticateProvider" class="services.identity.impl.IdsAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.ids.enabled}" />
+		<property name="configFile" value="${identity.auth.provider.ids.config.file}" />
+	</bean>
+	<bean id="idsWebAuthenticateProvider" class="services.identity.impl.IdsWebAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.idsWeb.enabled}" />
+		<property name="configFile" value="${identity.auth.provider.ids.config.file}" />
+	</bean>
+	<bean id="ids5AuthenticateProvider" class="services.identity.impl.IDS5AuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.ids5.enabled}" />
+		<property name="validateUrl" value="${identity.auth.provider.ids5.validateUrl}" />
+	</bean>
+	
+	<!-- sina weibo -->
+	<bean id="sinaAuthenticateProvider" class="services.identity.impl.SinaAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.sina.enabled}" />
+		<property name="urlUid" value="${identity.auth.provider.sina.url.uid}" />
+		<property name="urlProfile" value="${identity.auth.provider.sina.url.profile}" />
+	</bean>
+	<!-- tencent weibo -->
+	<bean id="tencentAuthenticateProvider" class="services.identity.impl.TencentAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.tencent.enabled}" />
+		<property name="urlUid" value="${identity.auth.provider.tencent.url.uid}" />
+		<property name="urlProfile" value="${identity.auth.provider.tencent.url.profile}" />
+	</bean>
+	<!-- qq connect -->
+	<bean id="qqAuthenticateProvider" class="services.identity.impl.QQAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.qq.enabled}" />
+		<property name="urlUid" value="${identity.auth.provider.qq.url.uid}" />
+		<property name="urlProfile" value="${identity.auth.provider.qq.url.profile}" />
+	</bean>
+	<!-- renren -->
+	<bean id="renrenAuthenticateProvider" class="services.identity.impl.RenRenAuthenticateProviderImpl">
+		<property name="enabled" value="${identity.auth.provider.renren.enabled}" />
+		<property name="urlUid" value="${identity.auth.provider.renren.url.uid}" />
+		<property name="urlProfile" value="${identity.auth.provider.renren.url.profile}" />
+	</bean>
+
+	<rabbit:fanout-exchange name="user.login" />
+    <rabbit:fanout-exchange name="user.logout" />
+    <rabbit:fanout-exchange name="user.create" />
+    
+    <bean id="userUriResourceProvider" class="services.identity.impl.UserUriResProvider">
+    	<property name="uriSpec">
+    		<bean class="com.wisorg.scc.api.internal.uri.model.UriSpec">
+    			<property name="key" value="user" />
+    			<property name="name" value="用户(SCC)" />
+    		</bean>
+    	</property>
+    </bean>
+
+	<bean id="userConverter" class="types.identity.convert.UserConverter">
+		<property name="appKey" value="${identity.cloud.app.key}" />
+		<property name="appSecret" value="${identity.cloud.app.secret}" />
+	</bean>
+</beans>

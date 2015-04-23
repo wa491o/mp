@@ -1,0 +1,13 @@
+# Test data
+identity.User(u_admin):
+    nickName:    Alex.Sun
+    signature:    abc...
+    rank:        5
+    avatar:        10
+    gender:        0
+    status:        0
+
+identity.Account(a_admin):
+    user:          u_admin
+    password:    123456
+    

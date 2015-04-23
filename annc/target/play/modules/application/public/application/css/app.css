@@ -1,0 +1,196 @@
+.imgBox{
+	float:left;
+	width:85px;
+	height:85px;
+	margin-left:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.imgBox img{
+	width:85px;
+	height:85px;
+}
+.contBox{
+	text-align:left;
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	width:230px;
+	float:left;
+}
+
+.contBox p{
+	display:block;	
+	margin-top: 5px;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+.contBox .cont-tit{
+	font-weight:bold;
+	color:#FDAD2B;
+}
+.contBox .cont-detail{
+	color:#909090;
+}
+
+.upBtnDiv{
+	float:left;
+	margin-left:10px;
+}
+
+.tipDiv{
+	float:left;
+	margin-left:40px;
+	color:#BCBCBC;
+}
+
+.nameFileDiv{
+	float:left;
+	margin-top:8px;
+	color:#238CD8;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+.redStar{
+	color:red;
+}
+
+.ifile {
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	width: 87px;
+	height: 33px;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+}
+
+.defaultLogoDiv{
+	width:112px;
+	height:112px;
+	float:left;
+}
+
+/**
+ * 可组合使用的样式
+ * 
+ */
+.mt10{
+	margin-top:10px;
+}
+
+.ml10{
+	margin-left:10px;
+}
+
+.mr30{
+	margin-right:30px;
+}
+.fl{
+	float:left;
+}
+.noMore{
+	font-size:14px;
+	text-align: center;
+}
+.screenShot{
+	margin:10px;
+}
+.addScreenShotFile{
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	width: 129px;
+	height: 33px;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+}
+.editScreenShotFile{
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	width: 58px;
+	height: 22px;
+	cursor: pointer;
+	top: 3px;
+	left: 42px;
+	border-radius:13px;
+}
+.appScreenContainer{
+	display:block;
+}
+.appScreen{
+	position:relative;
+	margin:6px;
+	float:left;
+}
+.screen-delete{
+	position:absolute;
+	left:28px;
+	bottom:-37px;
+	display:none;
+}
+.screen-file{
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	width: 112px;
+	height: 112px;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+}
+
+.optionDiv{
+	margin-top:10px;
+	padding-top:10px;
+	padding-left:10px;
+	display:inline-block;
+}
+.tabsContainer{
+	display:inline-block;
+	list-style:none;
+}
+.textareaDiv{
+	display:block;
+	float:left;
+}
+/*应用分类	BEGIN*/
+.addCatDialog{
+	padding:15px;
+	display:none;
+}
+.addCat-item{
+	height:100px;
+	padding-left:50px;
+}
+.addCat-item p{
+	line-height:32px;
+}
+.addCat-option{
+	text-align:center;
+}
+ .addCat-yes, .addCat-no{
+ 	display:inline-block;
+	margin: 0 20px;
+ }
+.addCat-name,.addCat-desc{
+	height:30px;
+	border:1px solid #D6D6D6;
+	border-radius: 2px;
+	width:150px;
+	margin:5px 0;
+	background-color:#fff;
+}
+.addCategory{
+	float:left;
+	margin-left:10px;
+}
+.searchCategory{
+	float:left;
+	margin-left:10px;
+}
+/*应用分类	END*/

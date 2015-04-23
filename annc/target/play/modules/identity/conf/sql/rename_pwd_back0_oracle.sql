@@ -1,0 +1,1 @@
+update t_scc_account set pwd="PASSWORD", pwd_back = "_PASSWORD" where pwd_back is null and pwd is null;

@@ -1,0 +1,34 @@
+secure.title=Please Login
+secure.username=Username:
+secure.password=Password:
+secure.remember=一个月内自动登录
+secure.signin=Sign in
+secure.error=错误的用户名或密码
+secure.logout=您已退出登录
+secure.timeout=会话已失效，请重新登陆
+secure.needlogin=需要登录
+secure.captcha=Captcha:
+secure.captcha.error=验证码错误
+
+error.1=内部异常
+error.2=空指异常
+error.3=IO异常
+error.4=数据库访问异常
+error.5=缓存异常
+error.7=不支持此操作
+error.8=内存溢出错误
+error.9=堆栈溢出错误
+error.10=功能尚未实现
+error.49=身份错误
+error.50=没有权限
+error.51=被限制的内容或操作
+error.52=非法参数
+error.53=非法参数
+error.54=参数不完整
+error.55=实体对象异常
+error.56=源内容已不存在
+error.57=实体对象已存在
+error.58=缺少对象标识(ID)
+error.60=参数校验错误
+
+error.707=拒绝应用API访问

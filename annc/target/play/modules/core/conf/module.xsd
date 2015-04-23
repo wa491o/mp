@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://wisorg.com/schema/module" targetNamespace="http://wisorg.com/schema/module"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:element name="module" type="module" />
+
+	<xs:element name="role" type="role" />
+
+	<xs:element name="roles" type="roles" />
+
+	<xs:element name="configurations" type="configurations" />
+
+	<xs:element name="fixtures" type="fixtures" />
+
+	<xs:element name="console" type="console" />
+
+	<xs:element name="menu" type="menu" />
+
+	<xs:element name="item" type="item" />
+
+	<xs:element name="script" type="script" />
+	
+	<xs:element name="sql" type="xs:string"/>
+
+	<xs:element name="job" type="job" />
+
+	<xs:element name="app" type="app" />
+
+	<xs:element name="config" type="config" />
+
+	<xs:element name="biz" type="biz" />
+
+	<xs:complexType name="module">
+		<xs:all minOccurs="0">
+			<xs:element ref="roles" minOccurs="0"/>
+			<xs:element ref="configurations" minOccurs="0"/>
+			<xs:element ref="fixtures" minOccurs="0"/>
+			<xs:element ref="console" minOccurs="0"/>
+		</xs:all>
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="index" type="xs:int" />
+	</xs:complexType>
+
+	<xs:complexType name="console">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="menu" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="menu">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element ref="item"/>
+				<xs:element ref="menu"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" />
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="primary" type="xs:boolean" default="true" />
+		<xs:attribute name="index" type="xs:int" />
+		<xs:attribute name="icon" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="item">
+		<xs:attribute name="id" type="xs:string" use="required" />
+		<xs:attribute name="title" type="xs:string" use="required" />
+		<xs:attribute name="action" type="xs:string" use="required" />
+		<xs:attribute name="index" type="xs:int" />
+		<xs:attribute name="check" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="role">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="type" type="roleType" />
+	</xs:complexType>
+
+	<xs:complexType name="roles">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="role" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="fixtures">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element ref="script"/>
+				<xs:element ref="job"/>
+				<xs:element ref="sql"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="script">
+		<xs:attribute name="db-type" type="dbType" use="required" />
+		<xs:attribute name="file" type="xs:string" use="required" />
+		<xs:attribute name="sql-type" type="sqlType" />
+	</xs:complexType>
+	
+	<xs:complexType name="job">
+		<xs:attribute name="class" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="configurations">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="app" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="config">
+		<xs:attribute name="key" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+		<xs:attribute name="type" type="configType"/>
+	</xs:complexType>
+
+	<xs:complexType name="biz">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="config" />
+		</xs:sequence>
+		<xs:attribute name="key" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="app">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="biz" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="key" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="appType" use="required" />
+	</xs:complexType>
+
+	<xs:simpleType name="appType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COMMON_SERVICE" />
+			<xs:enumeration value="BIZ_MODULE" />
+			<xs:enumeration value="THIRD_PARTY" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="roleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BUILD_IN" />
+			<xs:enumeration value="END_USER_ROLE" />
+			<xs:enumeration value="ADMIN_USER_ROLE" />
+			<xs:enumeration value="APPLICATION_ROLE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="dbType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="mysql" />
+			<xs:enumeration value="oracle" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="sqlType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ddl" />
+			<xs:enumeration value="dml" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="configType">
+		<xs:annotation>
+			<xs:documentation>
+				<![CDATA[
+				Now,We use only SPACE. Default value is SPACE.
+				]]>			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FS" />
+			<xs:enumeration value="SEARCHER" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

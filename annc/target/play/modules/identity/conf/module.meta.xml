@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://wisorg.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://wisorg.com/schema/module http://dev.wisorg.com/pub/module.xsd" title="用户管理" index="1">
+	<roles>
+		<role name="identity.account" title="账户管理" type="ADMIN_USER_ROLE" />
+		<role name="identity.user" title="用户管理" type="ADMIN_USER_ROLE" />
+		<role name="identity.role" title="角色管理" type="ADMIN_USER_ROLE" />
+	</roles>
+
+	
+	<configurations>
+		<app name="身份" key="identity" type="COMMON_SERVICE">
+			<biz name="身份-公共" key="identity-common" />
+			<biz name="用户-平台" key="scc-user">
+				<config key="scc-user" value="{'categories':[], 'coreName':'core0', 'enabled':true, 'fields':[], 'id':'scc-user', 'key':'scc-user', 'name':'用户-平台', 'providerType':'hessian', 'providerUrl':'http://127.0.0.1:9000/service/userIndexProvider', 'tpls':{}, 'vars':{}}" type="SEARCHER"/>
+			</biz>
+		</app>
+		<app name="用户" key="user" type="BIZ_MODULE">
+            <biz name="用户-公共" key="user-common" />
+			<biz name="用户-头像" key="user-avatar">
+				<config key="user-avatar" value="{'accessType':-1,'allowExts':[],'bizKey':'user-avatar','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'AVATAR','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[{'height':112,'width':112},{'height':168,'width':168},{'height':224,'width':224}]}"/>
+			</biz>
+		</app>
+	</configurations>
+	
+	<fixtures>
+		<script db-type="oracle" file="conf/sql/20140326_oracle.sql" sql-type="ddl"/>
+		<script db-type="mysql" file="conf/sql/20140326_mysql.sql" sql-type="ddl"/>
+		<job class="jobs.identity.IdentityFixture"/>
+		
+		<script db-type="oracle" file="conf/sql/account_user_oracle.sql" sql-type="dml"/>
+		<script db-type="mysql" file="conf/sql/account_user_mysql.sql" sql-type="dml"/>
+		
+		<script db-type="oracle" file="conf/sql/cred_value_oracle.sql" sql-type="dml"/>
+		<script db-type="mysql" file="conf/sql/cred_value_mysql.sql" sql-type="dml"/>
+		
+		<script db-type="oracle" file="conf/sql/rename_pwd_back_oracle.sql" sql-type="dml"/>
+		<script db-type="mysql" file="conf/sql/rename_pwd_back_mysql.sql" sql-type="dml"/>
+		
+		<script db-type="oracle" file="conf/sql/ids_no_oracle.sql" sql-type="dml"/>
+		<script db-type="mysql" file="conf/sql/ids_no_mysql.sql" sql-type="dml"/>
+		
+		<script db-type="oracle" file="conf/sql/rename_pwd_back0_oracle.sql" sql-type="dml"/>
+		<script db-type="mysql" file="conf/sql/rename_pwd_back0_mysql.sql" sql-type="dml"/>
+		
+		<script db-type="oracle" file="conf/sql/department_20140929_oracle.sql" sql-type="ddl"/>
+        <script db-type="mysql" file="conf/sql/department_20140929_mysql.sql" sql-type="ddl"/>
+        
+        <script db-type="oracle" file="conf/sql/user_20141016_oracle.sql" sql-type="ddl"/>
+        <script db-type="mysql" file="conf/sql/user_20141016_mysql.sql" sql-type="ddl"/>
+	</fixtures>
+
+	<console>
+		<menu id="identity.user.main" title="用户管理" index="1" primary="true" icon="icn_user">
+            <item id="identity.account" title="账户管理" index="1" action="@{identity.UserCtl.accountManage()}" check="identity.account"/>
+			<item id="identity.user" title="用户管理" index="2" action="@{identity.UserCtl.initUserIndex()}" check="identity.user"/>
+			<item id="identity.role" title="角色管理" index="3" action="@{identity.UserCtl.roleManage()}" check="identity.role"/>
+		</menu>
+		
+		<!-- <menu id="system.main">
+            <item id="identity.auth" title="管理员" index="1" action="@{identity.AdminSetCtl.adminManage()}" check="admin.admin"/>
+			<item id="identity.group" title="管理员组" index="2" action="@{identity.UserGroupCtl.userGroupIndex()}" check="admin.admin"/>
+		</menu> -->
+		
+		
+	</console>
+</module>

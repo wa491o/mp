@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://wisorg.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://wisorg.com/schema/module http://dev.wisorg.com/pub/module.xsd" title="应用超市">
+	<roles>
+		<role name="app.list" title="应用管理" type="ADMIN_USER_ROLE"  />
+		<role name="app.category" title="应用分类" type="ADMIN_USER_ROLE" />
+		<role name="poster.admin" title="超市海报" type="ADMIN_USER_ROLE" />
+		<role name="client.admin" title="终端版本" type="ADMIN_USER_ROLE" />
+		<role name="app.admin" title="应用管理" type="ADMIN_USER_ROLE" />
+		<role name="scope.basic" title="普通应用" type="APPLICATION_ROLE" />
+		<role name="scope.pro" title="特权应用" type="APPLICATION_ROLE" />
+		<role name="scope.trusted" title="信任应用" type="APPLICATION_ROLE" />
+	</roles>
+	
+	<configurations>
+		<app name="移动应用" key="app" type="BIZ_MODULE">
+			<biz name="应用-图标" key="app-icon">
+				<config key="app-icon" value="{'initCheck':{'height':98,'type':'SIZE','width':98},'accessType':-1,'allowExts':['png'],'bizKey':'app-icon','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':20480,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[{'height':49,'width':49},{'height':74,'width':74},{'height':98,'width':98}]}"/>
+			</biz>
+			<biz name="应用-安装包" key="app-pkg">
+				<config key="app-pkg" value="{'accessType':-1,'allowExts':[],'bizKey':'app-pkg','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'BIN','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0}"/>
+			</biz>
+			<biz name="应用截图" key="app-screen">
+				<config key="app-screen" value="{'initCheck':{'height':480,'type':'SIZE','width':320},'accessType':-1,'allowExts':['png','jpg'],'bizKey':'app-screen','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':51200,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[]}"/>
+			</biz>
+			<biz name="应用-公共" key="app-common"/>
+		</app>
+	</configurations>
+	
+	<fixtures>
+		<script db-type="mysql" file="conf/sql/20131205-01_mysql.sql"/>
+		<script db-type="oracle" file="conf/sql/20131205-01_oracle.sql"/>
+		<script db-type="oracle" file="conf/sql/20140326_oracle.sql" sql-type="ddl"/>
+		<script db-type="mysql" file="conf/sql/20140326_mysql.sql" sql-type="ddl"/>
+		<job class="jobs.application.AppFixture" />
+	</fixtures>
+
+	<console>
+		<menu id="app.main" title="应用超市" primary="true" index="2" icon="icn_app">
+			<!-- <item id="app.list" title="应用管理" index="1" action="@{application.AppCtl.appList()}" check="app.admin"/>
+			<item id="app.category" title="应用分类" index="2" action="@{application.AppCtl.appCatIndex()}" check="app.admin"/> -->
+			<item id="app.list" title="应用管理" index="1" action="@{application.AppCtl.appList()}" check="app.list"/>
+			<item id="app.category" title="应用分类" index="2" action="@{application.AppCtl.appCatIndex()}" check="app.category"/>
+			<item id="poster.config" title="超市海报" index="4" action="@{poster.PosterCtl.posterList()}" check="poster.admin"/>
+			<item id="client.version" title="终端版本" index="10" action="@{version.ClientVersions.index()}" check="client.admin"/>
+		</menu>
+	</console>
+</module>

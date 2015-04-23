@@ -1,0 +1,57 @@
+.select{
+	float:left;
+	border:1px solid #D6D6D6;
+	padding:5px;
+	width:130px;
+	height:34px;
+	border-radius:5px;
+}
+
+.attavarDiv{
+	float:left;
+	width:150px;
+	margin-left:15px;
+	margin-top:15px;
+}
+
+.detailDiv{
+	float:left;
+}
+
+.inputDiv_account{
+	float:left;
+	border:1px solid #D6D6D6;
+	width:120px;
+	height:30px;
+	border-radius:5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.inputDiv_ids{
+	float:left;
+	border:1px solid #D6D6D6;
+	width:190px;
+	height:30px;
+	border-radius:5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.inputDiv_detail{
+	border:0px solid #D6D6D6;
+	width:120px;
+	height:30px;
+	border-radius:5px;
+	padding-left:0px;
+	padding-right:5px;
+}
+
+.account ul{
+	list-style-type:none; 
+	width:100%;
+} 
+.account ul li{ 
+	margin-top:8px;
+	float:left;
+} 

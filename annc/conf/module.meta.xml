@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://wisorg.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://wisorg.com/schema/module http://dev.wisorg.com/pub/module.xsd" title="公告管理">
+	<roles>
+		<!-- <role name="annc.admin" title="公告管理" type="ADMIN_USER_ROLE" /> -->
+	</roles>
+	
+	<fixtures>
+		<script db-type="mysql" file="conf/sql/20131211-01_mysql.sql" sql-type="ddl" />
+		<script db-type="oracle" file="conf/sql/20140326_oracle.sql" sql-type="ddl" />
+		<script db-type="mysql" file="conf/sql/20140326_mysql.sql" sql-type="ddl" />
+	</fixtures>
+
+	<console>
+		<!-- <menu id="content.main">
+			<item id="annc.notice" title="通知公告" index="1" action="@{announcement.AnnouncementCtl.announcementIndex()}" check="annc.admin"/>
+		</menu> -->
+	</console>
+	
+	<configurations>
+		<app name="通知公告" key="annc" type="BIZ_MODULE">
+			<biz name="公告-列表图标" key="annc-icon">
+				<config key="annc-icon" value="{'accessType':-1,'allowExts':[],'bizKey':'annc-icon','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[{'height':50,'width':65},{'height':75,'width':98},{'height':100,'width':130}]}"/>
+			</biz>
+			<biz name="公告-附件" key="annc-attach">
+				<config key="annc-attach" value="{'accessType':-1,'allowExts':[],'bizKey':'annc-attach','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':2048000,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'BIN','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0}"/>
+			</biz>
+			<biz name="公告-插图" key="annc-inset">
+				<config key="annc-inset" value="{'accessType':-1,'allowExts':[],'bizKey':'annc-inset','cacheSeconds':0,'defaultIds':[1,2],'extractMetadata':false,'maxSize':-1,'quota':-1,'readScope':'ALL','status':'ENABLED','timeout':10,'type':'IMAGE','urlRewrite':false,'used':0,'userQuita':-1,'writeScope':'ALL','xsendfileLimitRate':0,'zooms':[]}"/>
+			</biz>
+			<biz name="通知公告" key="annc-message"/>
+		</app>
+	</configurations>
+</module>

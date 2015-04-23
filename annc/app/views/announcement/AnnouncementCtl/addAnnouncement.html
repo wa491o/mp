@@ -1,0 +1,135 @@
+#{extends 'main.html' /}
+#{set title: announce.id==0?'发布公告':'编辑公告' /}
+
+<link rel="stylesheet" media="screen" href="@{'/public/announcement/css/announceForConsole.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/js/kindeditor/themes/default/default.css'}">
+
+<div class="editMain">
+	<div class="headContent">
+		<a href="@{announcement.AnnouncementCtl.announcementIndex()}">通知公告</a>》#{if announce.id==0}发布公告#{/if}#{else}编辑公告#{/else}
+	</div>
+	<div class="bodyContent">
+		<input type="hidden" value="${announce.id}" id="idAnnouncement">
+		<div class="itemList clear" style="margin:0;">
+			<span class="list-tit">标题</span>
+			<div class="list-cont">
+				<input type="text" name="newsTitle" class="list-cont-inp" id="news_title" value="${announce.baseInfo.title}"/>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">订阅源</span>
+			<div class="list-cont">
+				<select class="list-cont-select" id="news_subSource">
+					 #{list soureList, as:'source'}
+						<option value="${source.id}" #{if announce.detailInfo.subscribeSource.id==source.id} selected="selected" #{/if}>${source.name}</option>
+				  	#{/list}
+				</select>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">摘要</span>
+			<div class="list-cont">
+				<textarea  class="list-cont-txtArea" style="height:75px;" id="news_summary">${announce.baseInfo.summary}</textarea>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">正文</span>
+			<div class="list-cont">
+				<textarea class="list-cont-txtArea" id="annc_cont" name="annc_cont">${announce.detailInfo.content}</textarea>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">&nbsp;</span>
+			<div class="list-cont">
+				<div class="list-cont-upload">
+					<div class="tit fl">附件上传</div>
+					<div class="btn-upload" style="position:relative;height:60px;">
+						<a class="bt_49_33_upload upload_btn" id="uploadAttachment" href="javascript:;"><span>上传</span></a>
+						<form id="annc_attachMent" method="post" enctype="multipart/form-data">
+							<input type="file" name="file" size="1" class="file attachMentUpload" style="margin-left:0;" onchange="Announcement.editPage.uploadAttachment(this);"/>
+							<input type="hidden" name="bizKey" value="annc-attach">
+						</form>
+						<div id="attachContainer">
+							#{list announce.attachment, as:'attachment'}
+								<div class="attach-item" imgid="${attachment.id}"><span title="${attachment.name}">${attachment.name}</span><a href="javascript:;" title="删除附件" onclick="Announcement.editPage.delImg(this)">×</a></div>
+							#{/list}
+						</div>
+					</div>
+					<div class="uploadinfo">
+						支持jpg、gif、png格式图片，rar、zip等压缩文件格式，以及word、excel、powerpoint等office文件格式、pdf文件格式的上传。最多支持上传5个文件，单个文件不超过2M。
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">&nbsp;</span>
+			<div class="list-cont">
+				<span class="tit">来源</span>
+				<input type="text" class="list-cont-inp W230" id="news_from" value="${announce.detailInfo.source}"/>
+				<span class="tit ml25">作者</span>
+				<input type="text" class="list-cont-inp W230" id="news_author" value="${announce.detailInfo.author}"/>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">&nbsp;</span>
+			<div class="list-cont">
+				<label style="color:#8f8f8f;"><input type="checkbox" id="defaultPush" style="margin-right:5px;">推送该公告</label>
+			</div>
+		</div>
+		<div class="itemList clear">
+			<span class="list-tit">&nbsp;</span>
+			<div class="list-cont">
+				<div class="ml125 fl">
+					<a class="bt_149_33_green confirm_btn" href="javascript:;"><span>发布</span></a>				
+				</div>
+				<div style="margin-left:299px;">
+					<a class="bt_149_33_orange back_btn" href="javascript:;"><span>返回</span></a>				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="@{'/public/announcement/js/announceForConsole.js'}"></script>
+<script type="text/javascript" src="@{'/public/js/kindeditor/kindeditor-min.js'}"></script>
+<script type="text/javascript">
+	$(function(){
+		Announcement.requestUrl.announcementManage="@{announcement.AnnouncementCtl.announcementIndex()}";
+		Announcement.requestUrl.saveAnnouncement="@{announcement.AnnouncementCtl.saveAnnouncement()}";
+		//Announcement.requestUrl.filePath="/fs/";
+		Announcement.requestUrl.uploadPath="/fs/api/upload";
+		Announcement.editPage.init();
+		KindEditor.ready(function(K) {
+			//初始化输入区域
+			Announcement.editor = K.create('textarea[name="annc_cont"]', {
+				//cssPath : '${resourcePath}/js/kindeditor/plugins/code/prettify.css',
+				//uploadJson : '${resourcePath}/js/kindeditor/jsp/upload_json.jsp',
+				uploadJson :Announcement.requestUrl.uploadPath,
+				bizKey:'annc-inset',
+				domainUrl:'${preUrl}',
+				fileManagerJson : '${resourcePath}/js/kindeditor/jsp/file_manager_json.jsp',
+				items : [
+					 		'undo', 'redo', '|', 
+					 		'justifyleft', 'justifycenter', 'justifyright','justifyfull', '|', 
+					 		//'formatblock',
+					 		'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+					 		'italic', 'underline', 'removeformat', '|', 'image',
+					 		'hr',  'pagebreak'
+					 	],
+				allowFileManager : true,
+				allowImageUpload : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						//document.forms['createActivityForm'].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						//document.forms['createActivityForm'].submit();
+					});
+				}
+			});
+			//prettyPrint();
+		});
+	});
+</script>

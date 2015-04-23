@@ -1,0 +1,307 @@
+html, body, th, td, dl, dt, dd, ul, ol, li, form, textarea, input, select, h1, h2, h3, h4, h5, h6, iframe, p {
+    margin: 0;
+    padding: 0;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+
+em {
+    font-style: normal;
+}
+
+body {
+    background: #fff;
+}
+
+dl, ul {
+    list-style: none;
+}
+
+img, body, html {
+    border: 0;
+}
+
+img, input, select, button {
+    vertical-align: middle;
+}
+
+a {
+    color: #12c;
+    outline: none;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+
+.clearfix {
+    overflow: hidden;
+    zoom: 1;
+}
+
+#container {
+    margin: 0 auto;
+}
+
+#header {
+    background-color: #f5f5f5;
+    height: 40px;
+    position: relative;
+}
+
+#header h1 {
+    padding: 12px 0 0 15px;
+    font-size: 16px;
+    color: #666;
+    text-shadow: 1px 2px 5px #888;
+}
+
+#header ul {
+    position: absolute;
+    top: 15px;
+    left: 120px;
+}
+
+#header ul li {
+    float: left;
+    margin-left: 10px;
+}
+
+#header ul li a {
+    float: left;
+    display: block;
+    padding: 0 15px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #f5f5f5;
+    border-bottom: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#header ul li.active a {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+}
+
+#tbody {
+    float: none;
+    padding: 10px;
+}
+
+.a-btn {
+    font-size: 12px;
+    display: inline-block;
+    background: url(../img/btn.gif) repeat-x scroll 0 0 #e0dfdf;
+    border: 1px solid #7f7f7f;
+    color: #000;
+    text-decoration: none;
+    height: 19px;
+    line-height: 19px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0 10px;
+}
+
+input.a-btn {
+    height: 21px;
+    line-height: 21px;
+}
+
+.a-btn:hover {
+    background-image: url(../img/btn-over.gif);
+    border: 1px solid #606060;
+}
+
+.list-table {
+    border-collapse: collapse;
+}
+
+.list-table caption {
+    text-align: left;
+    padding: 10px 0 10px 5px;
+    zoom: 1;
+    overflow: auto;
+}
+
+.list-table th {
+    color: #0e4d8b;
+    text-align: left;
+    border: 1px #ccc solid;
+    border-bottom: 1px #aaa solid;
+    border-right: 1px #aaa solid;
+    padding: 4px 10px;
+    white-space: nowrap;
+    vertical-align: top;
+    background: #f3f6f8;
+}
+
+.list-table-title caption {
+    text-align: left;
+    padding: 10px;
+}
+
+.list-table-title {
+    text-align: left;
+    border: 1px #98b1c8 solid;
+    padding: 4px 0 4px 10px;
+    font-weight: bold;
+    background: #f9f9f9;
+}
+
+.list-table td {
+    border: 1px #ccc solid;
+    vertical-align: middle;
+    color: #333;
+    text-align: left;
+    padding: 4px 8px;
+}
+
+.list-table .odd {
+    background: #fff;
+}
+
+.list-table .even {
+    background: #fafafa;
+}
+
+.list-table .hover {
+    background: #eee;
+}
+
+.form-table th {
+    color: #666;
+    text-align: right;
+    padding: 2px 5px 2px 10px;
+    white-space: nowrap;
+}
+
+.form-table td {
+    padding: 4px;
+}
+
+.form-table caption {
+    text-align: left;
+}
+
+.form-table select {
+    font-size: 14px;
+}
+
+.form-table caption, .t-title {
+    font-size: 15px;
+    color: #666;
+    text-shadow: 1px 1px 3px #999;
+    padding: 0 0 5px 0;
+}
+
+.form-table .info {
+    color: #999;
+}
+
+.error {
+    font-size: 16px;
+    color: #ff0000;
+    margin: 5px;
+}
+
+.ok {
+    font-size: 16px;
+    color: #0000ff;
+    margin: 5px;
+}
+
+.percent {
+    position: relative;
+    width: 200px;
+    border: 1px solid #aaa;
+}
+
+.percent span {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.percent div {
+    height: 20px;
+    background: #00DF00;
+}
+
+.tab {
+    border-bottom: 1px solid #e5e5e5;
+    height: 30px;
+    position: relative;
+}
+
+.tab ul {
+    position: absolute;
+    height: 25px;
+    top: 6px;
+    left: 0;
+}
+
+.tab ul li {
+    float: left;
+    margin-left: 10px;
+}
+
+.tab ul li a {
+    float: left;
+    display: block;
+    padding: 0 15px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;
+    border-bottom: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.tab ul li.active a {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+}
+
+.input-table td input {
+    color: #333;
+    width: 100%;
+    font-size: 14px;
+}
+
+.pagination-info {
+    padding: 5px 0;
+    line-height: 130%;
+}
+
+.pagination-info span {
+    display: block;
+    float: left;
+    padding: 2px 6px;
+}
+
+.pagination-info a, .pagination-info div, .pagination-info span {
+    display: block;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin: 0 4px;
+}
+
+.pagination-info div {
+    font-weight: bold;
+    color: #000;
+    border: none;
+    padding: 3px 8px;
+}
+
+.pagination-info a:hover {
+    background: #b0d1ea;
+    color: #00c;
+}

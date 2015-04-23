@@ -1,0 +1,86 @@
+#{extends 'main.html' /}
+#{set title:'通知公告' /}
+
+	<link rel="stylesheet" media="screen" href="@{'/public/announcement/css/announceForConsole.css'}">
+	<div class="newsIndex">
+		<div class="headerCont clear">
+			<div class="sourceList fl" id="subSourceContainer">
+				<div class="sourceItem fl sourceItem_selected" sourceid="0" style="border-left:none;"><span>全部</span></div>
+				 #{list soureList, as:'source'}
+					<div class="sourceItem fl" sourceid="${source.id}"><span>${source.name}</span></div>
+				  #{/list}
+			</div>
+			<div class="editNew fr">
+				<a class="bt_87_33_orange editNew_btn" href="@{announcement.AnnouncementCtl.addAnnouncement()}"><span>发布公告</span></a>
+				<a class="bt_87_33_orange sync_btn" href="javascript:;"><span>立即同步</span></a>
+			</div>
+			<div class="manageSource fr">
+				<a class="bt_49_33_upload manageSour_btn" href="javascript:;"><span>管理</span></a>
+			</div>
+			<!--管理订阅源对话框-->
+			<div class="dialog-manage" id="sourceDialog">
+				<div class="itemContainer">
+					<a class="bt_49_33_upload addSource_btn" href="javascript:;"><span>添加</span></a>
+				</div>
+				<div class="itemContainer">
+					<table>
+						<tbody id="sourceManage_body">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 添加订阅源对话框-->
+			<div id="editSourceDialog" class="dialog-addsource">
+				<div class="itemEditSource">
+					<span class="itemEditSource-span list-tit">名称</span>
+					<input type="text" id="sourceName" class="list-cont-inp" style="width:150px;"/>
+				</div>
+				<div class="itemEditSource">
+					<span class="itemEditSource-span list-tit">源</span>
+					<select id="sourceTemplate" class="list-cont-select" style="width:120px;"></select>
+                    <a class="bt_49_33_upload manageSour_btn" href="@{announcement.AnnouncementCtl.crawlTemplateIndex()}"><span>管理</span></a>
+				</div>
+				<div class="itemEditSource">
+					<span class="itemEditSource-span list-tit">&nbsp;</span>
+					<label><input type="checkbox" style="margin:0 3px;" id="defaultSource"/>默认订阅</label>
+				</div>
+				<div id="sourceManage_role">
+				</div>
+				<div class="itemEditSource" style="margin-left:100px;"> 
+					<a class="bt_56_32_green saveSource_btn" href="javascript:;"><span>确定</span></a>
+					<a class="bt_55_32_orange cancelSource_btn" href="javascript:;"><span>取消</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="bodyCont">
+			<div class="newsOption clear">
+				<div class="optionContainer fl">
+					<a class="bt_87_33_orange sheldingAll_btn" href="javascript:;"><span>批量屏蔽</span></a>
+					<a class="bt_87_33_orange deleteAll_btn" href="javascript:;"><span>批量删除</span></a>
+				</div>
+			</div>
+			<div class="newsList">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="@{'/public/announcement/js/announceForConsole.js'}"></script>
+	<script type="text/javascript">
+		$(function(){
+			Announcement.requestUrl.announcementManage="@{announcement.AnnouncementCtl.announcementIndex()}";
+			Announcement.requestUrl.addAnnouncement="@{announcement.AnnouncementCtl.addAnnouncement()}";
+			Announcement.requestUrl.changeSourceState="@{announcement.AnnouncementCtl.changeSourceStatus()}";
+			Announcement.requestUrl.manageSoruce="@{announcement.AnnouncementCtl.getAllSoure()}";
+			Announcement.requestUrl.getTemplates="@{announcement.AnnouncementCtl.getTemplates()}";
+			Announcement.requestUrl.deleteSubscribeSource="@{announcement.AnnouncementCtl.deleteSubscribeSource()}";
+			Announcement.requestUrl.editSubscribeSource="@{announcement.AnnouncementCtl.editSubscribeSource()}";
+			Announcement.requestUrl.saveSubscribeSource="@{announcement.AnnouncementCtl.saveSubSource()}";
+			Announcement.requestUrl.shieldingAnnouncement="@{announcement.AnnouncementCtl.shieldingAnnouncement()}";
+			Announcement.requestUrl.getAnnouncement="@{announcement.AnnouncementCtl.getAnnouncements()}";
+			Announcement.requestUrl.editAnnouncement="@{announcement.AnnouncementCtl.editAnnouncement()}";
+			Announcement.requestUrl.getAllRoles="@{announcement.AnnouncementCtl.getAllRoles()}";
+			Announcement.requestUrl.syncAnnouncement="@{announcement.AnnouncementCtl.syncAnnouncement()}";
+			Announcement.requestUrl.deleteAnnouncements="@{announcement.AnnouncementCtl.deleteAnnouncements()}";
+			Announcement.requestUrl.changerOrder="@{announcement.AnnouncementCtl.changerOrder()}";
+			Announcement.indexPage.init();
+		})
+	</script>

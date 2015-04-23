@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://wisorg.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://wisorg.com/schema/module http://dev.wisorg.com/pub/module.xsd" title="标准数据管理" index="1">
+	<roles>
+		<!-- <role name="standard.admin" title="标准数据管理" type="ADMIN_USER_ROLE" /> -->
+	</roles>
+	
+	<fixtures>
+		<script db-type="oracle" file="conf/sql/init_region_oracle.sql" />
+		<script db-type="mysql" file="conf/sql/init_region_mysql.sql" />
+        
+        <script db-type="oracle" file="conf/sql/init_school_oracle.sql" />
+        <script db-type="mysql" file="conf/sql/init_school_mysql.sql" />
+	</fixtures>
+
+	<console>
+		<menu id="system.main">
+			
+		</menu>
+	</console>
+</module>
